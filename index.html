@@ -1,0 +1,1709 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AUREON Motors — O futuro em movimento</title>
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #08090c;
+            color: #f5f5f5;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 22px 7%;
+
+            z-index: 1000;
+
+            background: rgba(8, 9, 12, 0.75);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .logo {
+            font-size: 1.7rem;
+            font-weight: 900;
+            letter-spacing: 3px;
+        }
+
+        .logo span {
+            color: #00d4ff;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #c9c9c9;
+            font-weight: bold;
+            font-size: 0.95rem;
+
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #00d4ff;
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            padding: 130px 7% 70px;
+
+            position: relative;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0,0,0,0.95) 10%,
+                    rgba(0,0,0,0.65) 45%,
+                    rgba(0,0,0,0.15) 100%
+                ),
+                url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2000&q=90");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .tag {
+            display: inline-block;
+
+            padding: 8px 16px;
+
+            border: 1px solid #00d4ff;
+
+            border-radius: 30px;
+
+            color: #00d4ff;
+
+            font-size: 0.85rem;
+            font-weight: bold;
+
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3.5rem, 8vw, 7rem);
+
+            line-height: 0.95;
+
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #00d4ff;
+        }
+
+        .hero p {
+            color: #c5c5c5;
+            font-size: 1.15rem;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+
+            margin-top: 35px;
+
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 28px;
+
+            border-radius: 6px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+            border: none;
+        }
+
+        .btn-primary {
+            background: #00d4ff;
+            color: #001015;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+
+            border: 1px solid #777;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 10px 35px rgba(0,212,255,0.35);
+        }
+
+
+        /* =========================
+           ESTATÍSTICAS
+        ========================== */
+
+        .stats {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            border-top: 1px solid #25272d;
+            border-bottom: 1px solid #25272d;
+
+            background: #0d0f13;
+        }
+
+        .stat {
+            padding: 35px;
+
+            text-align: center;
+
+            border-right: 1px solid #25272d;
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat h2 {
+            font-size: 2rem;
+            color: #00d4ff;
+        }
+
+        .stat p {
+            color: #888;
+            margin-top: 5px;
+        }
+
+
+        /* =========================
+           SEÇÕES
+        ========================== */
+
+        section {
+            padding: 110px 7%;
+        }
+
+        .section-title {
+            max-width: 750px;
+            margin-bottom: 55px;
+        }
+
+        .section-title small {
+            color: #00d4ff;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .section-title h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin: 10px 0 15px;
+        }
+
+        .section-title p {
+            color: #999;
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           CARROS
+        ========================== */
+
+        .cars {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(280px, 1fr));
+
+            gap: 25px;
+        }
+
+        .car {
+            background: #111318;
+
+            border: 1px solid #24262d;
+
+            border-radius: 14px;
+
+            overflow: hidden;
+
+            transition: 0.4s;
+        }
+
+        .car:hover {
+            transform: translateY(-10px);
+
+            border-color: #00d4ff;
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .car-image {
+            height: 240px;
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .car-info {
+            padding: 25px;
+        }
+
+        .car-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .car-info p {
+            color: #888;
+        }
+
+        .car-specs {
+            display: flex;
+            justify-content: space-between;
+
+            margin-top: 25px;
+
+            padding-top: 20px;
+
+            border-top: 1px solid #282a30;
+        }
+
+        .car-specs div {
+            text-align: center;
+        }
+
+        .car-specs strong {
+            display: block;
+            color: #00d4ff;
+        }
+
+        .car-specs span {
+            color: #777;
+            font-size: 0.75rem;
+        }
+
+
+        /* =========================
+           ELÉTRICO
+        ========================== */
+
+        .electric {
+            background:
+                radial-gradient(
+                    circle at 80% 50%,
+                    rgba(0,212,255,0.15),
+                    transparent 40%
+                ),
+                #0a0c10;
+        }
+
+        .electric-content {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 60px;
+
+            align-items: center;
+        }
+
+        .electric-image {
+            min-height: 500px;
+
+            border-radius: 20px;
+
+            background:
+                url("https://images.unsplash.com/photo-1551830820-330a71b99659?auto=format&fit=crop&w=1500&q=90");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .electric-text h2 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .electric-text h2 span {
+            color: #00d4ff;
+        }
+
+        .electric-text p {
+            color: #999;
+            line-height: 1.8;
+        }
+
+        .features {
+            margin-top: 30px;
+
+            display: grid;
+
+            gap: 15px;
+        }
+
+        .feature {
+            padding: 18px;
+
+            background: #11151a;
+
+            border-left: 3px solid #00d4ff;
+
+            border-radius: 5px;
+        }
+
+        .feature strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .feature span {
+            color: #888;
+        }
+
+
+        /* =========================
+           TECNOLOGIA
+        ========================== */
+
+        .technology {
+            background: #f2f5f7;
+            color: #101216;
+        }
+
+        .technology .section-title p {
+            color: #555;
+        }
+
+        .tech-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(230px, 1fr));
+
+            gap: 20px;
+        }
+
+        .tech-card {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            transition: 0.3s;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .tech-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .tech-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .tech-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           PERSONALIZAÇÃO
+        ========================== */
+
+        .customizer {
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #101318,
+                    #08090c
+                );
+        }
+
+        .color-buttons {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            margin: 35px 0;
+        }
+
+        .color-btn {
+            width: 45px;
+            height: 45px;
+
+            border-radius: 50%;
+
+            border: 3px solid white;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .color-btn:hover {
+            transform: scale(1.15);
+        }
+
+        .blue {
+            background: #00aaff;
+        }
+
+        .red {
+            background: #e62d3d;
+        }
+
+        .black {
+            background: #080808;
+        }
+
+        .white {
+            background: #eeeeee;
+        }
+
+        #selectedColor {
+            font-weight: bold;
+            color: #00d4ff;
+        }
+
+
+        /* =========================
+           SIMULADOR
+        ========================== */
+
+        .simulator {
+            max-width: 850px;
+            margin: auto;
+
+            padding: 40px;
+
+            background: #111318;
+
+            border: 1px solid #282b31;
+
+            border-radius: 20px;
+        }
+
+        .simulator label {
+            display: block;
+
+            margin-bottom: 10px;
+
+            color: #aaa;
+        }
+
+        .simulator select {
+            width: 100%;
+
+            padding: 15px;
+
+            margin-bottom: 25px;
+
+            background: #08090c;
+
+            color: white;
+
+            border: 1px solid #333;
+
+            border-radius: 7px;
+        }
+
+        .price {
+            text-align: center;
+
+            padding: 30px;
+
+            background: #08090c;
+
+            border-radius: 12px;
+        }
+
+        .price h3 {
+            color: #888;
+        }
+
+        .price strong {
+            display: block;
+
+            font-size: 2.5rem;
+
+            color: #00d4ff;
+
+            margin-top: 10px;
+        }
+
+
+        /* =========================
+           SOBRE
+        ========================== */
+
+        .about {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 60px;
+
+            align-items: center;
+        }
+
+        .about-image {
+            min-height: 450px;
+
+            border-radius: 20px;
+
+            background:
+                url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1500&q=90");
+
+            background-size: cover;
+
+            background-position: center;
+        }
+
+        .about-text p {
+            color: #999;
+
+            line-height: 1.8;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* =========================
+           CONTATO
+        ========================== */
+
+        .contact {
+            background: #00d4ff;
+            color: #031015;
+
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+        }
+
+        .contact p {
+            margin: 15px auto 30px;
+
+            max-width: 600px;
+
+            color: #16424b;
+        }
+
+        .contact .btn {
+            background: #061014;
+            color: white;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            padding: 60px 7%;
+
+            background: #050608;
+
+            border-top: 1px solid #202228;
+        }
+
+        .footer-content {
+            display: grid;
+
+            grid-template-columns:
+                2fr 1fr 1fr 1fr;
+
+            gap: 40px;
+        }
+
+        footer h3 {
+            margin-bottom: 15px;
+        }
+
+        footer p,
+        footer a {
+            color: #777;
+
+            display: block;
+
+            margin-bottom: 8px;
+        }
+
+        footer a:hover {
+            color: #00d4ff;
+        }
+
+        .copyright {
+            margin-top: 50px;
+
+            padding-top: 25px;
+
+            border-top: 1px solid #202228;
+
+            color: #555;
+
+            text-align: center;
+        }
+
+
+        /* =========================
+           BOTÃO TOPO
+        ========================== */
+
+        #topButton {
+            position: fixed;
+
+            right: 25px;
+            bottom: 25px;
+
+            width: 50px;
+            height: 50px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background: #00d4ff;
+
+            cursor: pointer;
+
+            font-size: 20px;
+
+            display: none;
+
+            z-index: 999;
+        }
+
+
+        /* =========================
+           RESPONSIVO
+        ========================== */
+
+        @media (max-width: 850px) {
+
+            header {
+                padding: 18px 5%;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .stat {
+                border-bottom: 1px solid #25272d;
+            }
+
+            .electric-content,
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .electric-text h2 {
+                font-size: 3rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            section {
+                padding: 75px 5%;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .simulator {
+                padding: 25px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <a href="#inicio" class="logo">
+        AURE<span>ON</span>
+    </a>
+
+    <nav>
+        <a href="#carros">Modelos</a>
+        <a href="#eletrico">Elétricos</a>
+        <a href="#tecnologia">Tecnologia</a>
+        <a href="#empresa">Empresa</a>
+        <a href="#contato">Contato</a>
+    </nav>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="inicio">
+
+    <div class="hero-content">
+
+        <span class="tag">
+            A NOVA ERA COMEÇA AGORA
+        </span>
+
+        <h1>
+            Dirija o <span>futuro.</span>
+        </h1>
+
+        <p>
+            AUREON Motors é uma fabricante automotiva fictícia
+            criada para representar uma nova geração de veículos:
+            design marcante, tecnologia inteligente e desempenho
+            extraordinário.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a
+                href="#carros"
+                class="btn btn-primary"
+            >
+                Explorar modelos
+            </a>
+
+            <a
+                href="#tecnologia"
+                class="btn btn-secondary"
+            >
+                Nossa tecnologia
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     STATS
+========================= -->
+
+<div class="stats">
+
+    <div class="stat">
+        <h2>3,2s</h2>
+        <p>0–100 km/h</p>
+    </div>
+
+    <div class="stat">
+        <h2>720 cv</h2>
+        <p>Potência máxima</p>
+    </div>
+
+    <div class="stat">
+        <h2>610 km</h2>
+        <p>Autonomia elétrica</p>
+    </div>
+
+    <div class="stat">
+        <h2>2026</h2>
+        <p>Nova geração</p>
+    </div>
+
+</div>
+
+
+<!-- =========================
+     MODELOS
+========================= -->
+
+<section id="carros">
+
+    <div class="section-title">
+
+        <small>NOSSA LINHA</small>
+
+        <h2>Conheça nossos modelos.</h2>
+
+        <p>
+            Cada AUREON foi projetado para uma experiência
+            diferente. Escolha seu estilo.
+        </p>
+
+    </div>
+
+
+    <div class="cars">
+
+
+        <!-- CARRO 1 -->
+
+        <article class="car">
+
+            <div
+                class="car-image"
+                style="
+                background-image:
+                url('https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1200&q=85');
+                "
+            ></div>
+
+            <div class="car-info">
+
+                <h3>AUREON X1</h3>
+
+                <p>
+                    O esportivo compacto da nova geração.
+                </p>
+
+                <div class="car-specs">
+
+                    <div>
+                        <strong>310</strong>
+                        <span>CV</span>
+                    </div>
+
+                    <div>
+                        <strong>4,8s</strong>
+                        <span>0–100</span>
+                    </div>
+
+                    <div>
+                        <strong>245</strong>
+                        <span>KM/H</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- CARRO 2 -->
+
+        <article class="car">
+
+            <div
+                class="car-image"
+                style="
+                background-image:
+                url('https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=1200&q=85');
+                "
+            ></div>
+
+            <div class="car-info">
+
+                <h3>AUREON GT</h3>
+
+                <p>
+                    Performance para quem não aceita limites.
+                </p>
+
+                <div class="car-specs">
+
+                    <div>
+                        <strong>520</strong>
+                        <span>CV</span>
+                    </div>
+
+                    <div>
+                        <strong>3,7s</strong>
+                        <span>0–100</span>
+                    </div>
+
+                    <div>
+                        <strong>305</strong>
+                        <span>KM/H</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- CARRO 3 -->
+
+        <article class="car">
+
+            <div
+                class="car-image"
+                style="
+                background-image:
+                url('https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1200&q=85');
+                "
+            ></div>
+
+            <div class="car-info">
+
+                <h3>AUREON E7</h3>
+
+                <p>
+                    SUV elétrico. Silencioso por fora,
+                    poderoso por dentro.
+                </p>
+
+                <div class="car-specs">
+
+                    <div>
+                        <strong>450</strong>
+                        <span>CV</span>
+                    </div>
+
+                    <div>
+                        <strong>4,1s</strong>
+                        <span>0–100</span>
+                    </div>
+
+                    <div>
+                        <strong>610</strong>
+                        <span>KM</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ELÉTRICO
+========================= -->
+
+<section class="electric" id="eletrico">
+
+    <div class="electric-content">
+
+        <div class="electric-image"></div>
+
+        <div class="electric-text">
+
+            <small style="color:#00d4ff;">
+                TECNOLOGIA ELÉTRICA
+            </small>
+
+            <h2>
+                Energia para <span>ir além.</span>
+            </h2>
+
+            <p>
+                A linha elétrica AUREON combina desempenho,
+                eficiência e tecnologia de última geração para
+                transformar completamente a experiência de dirigir.
+            </p>
+
+
+            <div class="features">
+
+                <div class="feature">
+
+                    <strong>⚡ Carregamento ultrarrápido</strong>
+
+                    <span>
+                        Até 80% de bateria em aproximadamente
+                        25 minutos em carregadores compatíveis.
+                    </span>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <strong>🔋 Grande autonomia</strong>
+
+                    <span>
+                        Até 610 km de autonomia estimada.
+                    </span>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <strong>🧠 Inteligência artificial</strong>
+
+                    <span>
+                        Assistente inteligente integrado ao veículo.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     TECNOLOGIA
+========================= -->
+
+<section class="technology" id="tecnologia">
+
+    <div class="section-title">
+
+        <small>INOVAÇÃO</small>
+
+        <h2>
+            Tecnologia que trabalha por você.
+        </h2>
+
+        <p>
+            Nossos veículos foram projetados para transformar
+            tecnologia em conforto, segurança e desempenho.
+        </p>
+
+    </div>
+
+
+    <div class="tech-grid">
+
+
+        <div class="tech-card">
+
+            <div class="tech-icon">
+                🧠
+            </div>
+
+            <h3>AUREON AI</h3>
+
+            <p>
+                Um assistente inteligente que aprende seus
+                hábitos e ajuda a tornar cada viagem mais prática.
+            </p>
+
+        </div>
+
+
+        <div class="tech-card">
+
+            <div class="tech-icon">
+                🛡️
+            </div>
+
+            <h3>Safety Shield</h3>
+
+            <p>
+                Sensores e sistemas avançados trabalham
+                constantemente para aumentar a segurança.
+            </p>
+
+        </div>
+
+
+        <div class="tech-card">
+
+            <div class="tech-icon">
+                📱
+            </div>
+
+            <h3>AUREON Connect</h3>
+
+            <p>
+                Controle diversas funções do seu carro
+                diretamente pelo smartphone.
+            </p>
+
+        </div>
+
+
+        <div class="tech-card">
+
+            <div class="tech-icon">
+                🚗
+            </div>
+
+            <h3>DriveSense</h3>
+
+            <p>
+                Ajustes inteligentes de condução para diferentes
+                condições de estrada.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PERSONALIZAÇÃO
+========================= -->
+
+<section class="customizer">
+
+    <div class="section-title" style="margin-left:auto;margin-right:auto;">
+
+        <small>SEU CARRO</small>
+
+        <h2>
+            Escolha sua personalidade.
+        </h2>
+
+        <p>
+            Escolha uma cor para o seu AUREON.
+        </p>
+
+    </div>
+
+
+    <div class="color-buttons">
+
+        <button
+            class="color-btn blue"
+            onclick="changeColor('Azul Elétrico')"
+        ></button>
+
+        <button
+            class="color-btn red"
+            onclick="changeColor('Vermelho Esportivo')"
+        ></button>
+
+        <button
+            class="color-btn black"
+            onclick="changeColor('Preto Eclipse')"
+        ></button>
+
+        <button
+            class="color-btn white"
+            onclick="changeColor('Branco Polar')"
+        ></button>
+
+    </div>
+
+
+    <p>
+        Cor selecionada:
+        <span id="selectedColor">
+            Azul Elétrico
+        </span>
+    </p>
+
+</section>
+
+
+<!-- =========================
+     SIMULADOR
+========================= -->
+
+<section>
+
+    <div class="section-title">
+
+        <small>SIMULADOR</small>
+
+        <h2>
+            Quanto custa o seu AUREON?
+        </h2>
+
+        <p>
+            Monte uma configuração e veja uma estimativa
+            de preço.
+        </p>
+
+    </div>
+
+
+    <div class="simulator">
+
+        <label>
+            Escolha o modelo
+        </label>
+
+        <select id="carModel" onchange="calculatePrice()">
+
+            <option value="189990">
+                AUREON X1 — R$ 189.990
+            </option>
+
+            <option value="329990">
+                AUREON GT — R$ 329.990
+            </option>
+
+            <option value="419990">
+                AUREON E7 — R$ 419.990
+            </option>
+
+        </select>
+
+
+        <label>
+            Pacote adicional
+        </label>
+
+        <select id="package" onchange="calculatePrice()">
+
+            <option value="0">
+                Nenhum pacote
+            </option>
+
+            <option value="25000">
+                Tech Pack — R$ 25.000
+            </option>
+
+            <option value="50000">
+                Performance Pack — R$ 50.000
+            </option>
+
+            <option value="75000">
+                Ultimate Pack — R$ 75.000
+            </option>
+
+        </select>
+
+
+        <div class="price">
+
+            <h3>
+                Estimativa
+            </h3>
+
+            <strong id="price">
+                R$ 189.990
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SOBRE
+========================= -->
+
+<section id="empresa">
+
+    <div class="about">
+
+        <div class="about-image"></div>
+
+
+        <div class="about-text">
+
+            <small style="color:#00d4ff;">
+                SOBRE A AUREON
+            </small>
+
+            <h2 style="font-size:3rem;margin:15px 0 25px;">
+                Não construímos apenas carros.
+            </h2>
+
+            <p>
+                AUREON Motors é uma empresa automobilística
+                fictícia criada com uma visão simples:
+                imaginar como seria a mobilidade do futuro.
+            </p>
+
+            <p>
+                Nossa filosofia combina design, engenharia,
+                sustentabilidade e tecnologia para criar
+                veículos que não sejam apenas meios de transporte,
+                mas experiências.
+            </p>
+
+            <a
+                href="#contato"
+                class="btn btn-primary"
+                style="display:inline-block;margin-top:15px;"
+            >
+                Fale conosco
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONTATO
+========================= -->
+
+<section class="contact" id="contato">
+
+    <h2>
+        Pronto para dirigir o futuro?
+    </h2>
+
+    <p>
+        Conheça a AUREON Motors e descubra uma nova maneira
+        de enxergar o automóvel.
+    </p>
+
+    <a
+        href="mailto:contato@aureonmotors.example"
+        class="btn"
+    >
+        Entrar em contato
+    </a>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-content">
+
+
+        <div>
+
+            <h3>AUREON</h3>
+
+            <p>
+                O futuro em movimento.
+            </p>
+
+            <p>
+                Empresa automobilística fictícia.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>Modelos</h3>
+
+            <a href="#carros">
+                AUREON X1
+            </a>
+
+            <a href="#carros">
+                AUREON GT
+            </a>
+
+            <a href="#carros">
+                AUREON E7
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>Empresa</h3>
+
+            <a href="#empresa">
+                Sobre nós
+            </a>
+
+            <a href="#tecnologia">
+                Tecnologia
+            </a>
+
+            <a href="#contato">
+                Contato
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>Links</h3>
+
+            <a
+                href="https://www.youtube.com/"
+                target="_blank"
+            >
+                YouTube
+            </a>
+
+            <a
+                href="https://www.instagram.com/"
+                target="_blank"
+            >
+                Instagram
+            </a>
+
+            <a
+                href="https://www.google.com/maps/"
+                target="_blank"
+            >
+                Google Maps
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 AUREON Motors — Projeto fictício.
+
+    </div>
+
+</footer>
+
+
+<!-- =========================
+     BOTÃO TOPO
+========================= -->
+
+<button id="topButton">
+    ↑
+</button>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+
+    /* =========================
+       PERSONALIZAÇÃO
+    ========================== */
+
+    function changeColor(color) {
+
+        document.getElementById("selectedColor").textContent = color;
+
+    }
+
+
+    /* =========================
+       CALCULADORA
+    ========================== */
+
+    function calculatePrice() {
+
+        const car =
+            Number(
+                document.getElementById("carModel").value
+            );
+
+        const pack =
+            Number(
+                document.getElementById("package").value
+            );
+
+        const total = car + pack;
+
+        document.getElementById("price").textContent =
+            total.toLocaleString(
+                "pt-BR",
+                {
+                    style: "currency",
+                    currency: "BRL"
+                }
+            );
+
+    }
+
+
+    /* =========================
+       BOTÃO VOLTAR AO TOPO
+    ========================== */
+
+    const topButton =
+        document.getElementById("topButton");
+
+
+    window.addEventListener("scroll", () => {
+
+        if (window.scrollY > 500) {
+
+            topButton.style.display = "block";
+
+        } else {
+
+            topButton.style.display = "none";
+
+        }
+
+    });
+
+
+    topButton.addEventListener("click", () => {
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
+
+    });
+
+
+    /* =========================
+       ANIMAÇÃO DOS CARDS
+    ========================== */
+
+    const elements =
+        document.querySelectorAll(
+            ".car, .tech-card, .feature"
+        );
+
+
+    const observer =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.style.opacity = "1";
+
+                        entry.target.style.transform =
+                            "translateY(0)";
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.15
+            }
+        );
+
+
+    elements.forEach(element => {
+
+        element.style.opacity = "0";
+
+        element.style.transform =
+            "translateY(30px)";
+
+        element.style.transition =
+            "all 0.7s ease";
+
+        observer.observe(element);
+
+    });
+
+
+</script>
+
+
+</body>
+
+</html>
